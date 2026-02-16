@@ -8,6 +8,7 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.ai-code-tracking.json
 *.iws
 *.iml
 *.ipr
