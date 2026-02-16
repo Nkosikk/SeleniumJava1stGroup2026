@@ -32,6 +32,4 @@
         </dependency>
         <!-- Source: https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
     </dependencies>
-
-
 </project>
