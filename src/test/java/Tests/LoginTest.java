@@ -16,6 +16,6 @@ public class LoginTest extends BaseTest {
         Thread.sleep(2000);
         loginPage.clickSubmitButton();
         Thread.sleep(3000);
-        loginPage.verifyLoginSuccess("Welcome back");
+        loginPage.verifyLoginSuccess("Welcome back, Avela! \uD83D\uDC4B");
     }
 }
