@@ -10,12 +10,12 @@ public class LoginTest extends BaseTest {
     public void loginWithValidDetails() throws InterruptedException {
 
         loginPage.clickLoginButton();
-            Thread.sleep(2000);
+        Thread.sleep(2000);
         loginPage.enterEmailAddress("aveetestuser@gmail.com");
         loginPage.enterPassword("Testing123456!");
         Thread.sleep(2000);
         loginPage.clickSubmitButton();
         Thread.sleep(3000);
-        loginPage.verifyLoginSuccess("Welcome back");
+        loginPage.verifyLoginSuccess("Welcome back, but got: Welcome back, Avela! \uD83D\uDC4B");
     }
 }
