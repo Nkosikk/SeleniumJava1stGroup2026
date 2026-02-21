@@ -1,5 +1,4 @@
 package Base;
-
 import Pages.LoginPage;
 import Utilities.BrowserFactory;
 import org.openqa.selenium.WebDriver;
