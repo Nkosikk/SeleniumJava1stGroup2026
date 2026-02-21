@@ -39,8 +39,6 @@ public class LoginPage {
     public void verifyLoginSuccess(String expectedMessage) {
         welcomeBackMessage.isDisplayed();
         String actualMessage = welcomeBackMessage.getText();
-        System.out.println(welcomeBackMessage.getText());
-        System.out.println(expectedMessage);
         if (!actualMessage.equals(expectedMessage)) {
             throw new AssertionError("Expected message: " + expectedMessage + ", but got: " + actualMessage);
         }
