@@ -3,7 +3,7 @@ package Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage {
+public class LoginPageWithoutWaits {
 
     @FindBy(xpath = "//*[@id='app-root']/nav/div[1]/div[3]/button/span[2]")
     WebElement loginButton;

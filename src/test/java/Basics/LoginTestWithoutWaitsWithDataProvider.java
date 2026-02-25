@@ -1,24 +1,24 @@
-package Tests;
+package Basics;
 
-import Base.BaseTest;
+import Base.BaseTestWithoutWaits;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class LoginTest extends BaseTest {
+public class LoginTestWithoutWaitsWithDataProvider extends BaseTestWithoutWaits {
 
 
     @Test(dataProvider = "testdata")
     public void loginWithValidDetails(String email,String password) throws InterruptedException {
 
-        loginPage.clickLoginButton();
+        loginPageWithoutWaits.clickLoginButton();
         Thread.sleep(2000);
-        loginPage.enterEmailAddress(email);
-        loginPage.enterPassword(password);
+        loginPageWithoutWaits.enterEmailAddress(email);
+        loginPageWithoutWaits.enterPassword(password);
         Thread.sleep(2000);
-        loginPage.clickSubmitButton();
+        loginPageWithoutWaits.clickSubmitButton();
         Thread.sleep(5000);
-        loginPage.verifyLoginSuccess("Welcome back, Avela! \uD83D\uDC4B");
+        loginPageWithoutWaits.verifyLoginSuccess("Welcome back, Avela! \uD83D\uDC4B");
 
     }
 
