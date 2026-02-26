@@ -1,7 +1,6 @@
-package Basics;
+package BasicTests;
 
-import Base.BaseTestWithWaits;
-import Base.BaseTestWithoutWaits;
+import BasicBase.BaseTestWithWaits;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

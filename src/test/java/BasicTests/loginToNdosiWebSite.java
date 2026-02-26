@@ -1,4 +1,4 @@
-package Basics;
+package BasicTests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ public class loginToNdosiWebSite {
     WebDriver driver;
 
     @Test
-    public void loginWithValidDetails() throws InterruptedException {
+    public void loginWithValidDetailsb() throws InterruptedException {
 
         driver= new ChromeDriver();
         driver.get("https://ndosisimplifiedautomation.vercel.app/");

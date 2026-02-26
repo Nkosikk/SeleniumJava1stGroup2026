@@ -1,7 +1,6 @@
-package Base;
+package BasicBase;
 
-import Pages.LoginPageWithWaits;
-import Pages.LoginPageWithoutWaits;
+import BasicPages.LoginPageWithWaits;
 import Utilities.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;

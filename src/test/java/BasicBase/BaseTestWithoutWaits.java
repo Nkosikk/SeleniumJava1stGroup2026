@@ -1,6 +1,6 @@
-package Base;
+package BasicBase;
 
-import Pages.LoginPageWithoutWaits;
+import BasicPages.LoginPageWithoutWaits;
 import Utilities.BrowserFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
