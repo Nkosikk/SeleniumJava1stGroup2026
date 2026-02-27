@@ -1,4 +1,4 @@
-package Basics;
+package BasicTests;
 
 import org.testng.annotations.*;
 
