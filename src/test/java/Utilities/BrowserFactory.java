@@ -13,7 +13,7 @@ public class BrowserFactory {
     static WebDriver driver;
 
     public static WebDriver startBrowser(String browserChoice, String url) {
-        if (browserChoice.equalsIgnoreCase("cHrOmE")) {
+        if (browserChoice.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
         } else if (browserChoice.equalsIgnoreCase("internetexplore")) {
             driver = new InternetExplorerDriver();
@@ -27,5 +27,9 @@ public class BrowserFactory {
         driver.manage().window().maximize();
         driver.get(url);
         return driver;
+    }
+    @Test
+    public  void runBrowser() {
+       startBrowser("chrome", "https://www.ndosiautomation.co.za/");
     }
 }
