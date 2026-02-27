@@ -1,46 +1,15 @@
 package Pages;
 
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    @FindBy(xpath = "//*[@id='app-root']/nav/div[1]/div[3]/button/span[2]")
-    WebElement loginButton;
+    WebDriver driver;
+    public LoginPage(WebDriver driver){
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
 
-    @FindBy(id = "login-email")
-    WebElement loginEmailField;
 
-    @FindBy(id = "login-password")
-    WebElement loginPasswordField;
-
-    @FindBy(id = "login-submit")
-    WebElement loginSubmitButton;
-
-    @FindBy(xpath = "//h2[contains(text(), 'Welcome back')]")
-    WebElement welcomeBackMessage;
-
-    public void clickLoginButton() {
-        loginButton.click();
-    }
-
-    public void enterEmailAddress(String email) {
-        loginEmailField.sendKeys(email);
-    }
-
-    public void enterPassword(String password) {
-        loginPasswordField.sendKeys(password);
-    }
-
-    public void clickSubmitButton() {
-        loginSubmitButton.click();
-    }
-
-    public void verifyLoginSuccess(String expectedMessage) {
-        welcomeBackMessage.isDisplayed();
-        String actualMessage = welcomeBackMessage.getText();
-        if (!actualMessage.equals(expectedMessage)) {
-            throw new AssertionError("Expected message: " + expectedMessage + ", but got: " + actualMessage);
-        }
     }
 }
