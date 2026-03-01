@@ -12,5 +12,5 @@ public class BaseTest {
      public final String browserChoice = "chrome";
 
      public final WebDriver driver = browserFactory.startBrowser(browserChoice, url);
-
+     public LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
 }

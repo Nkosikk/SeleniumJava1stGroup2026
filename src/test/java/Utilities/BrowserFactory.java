@@ -15,7 +15,7 @@ public class BrowserFactory {
     public static WebDriver startBrowser(String browserChoice, String url) {
         if (browserChoice.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
-        } else if (browserChoice.equalsIgnoreCase("internetexplore")) {
+        } else if (browserChoice.equalsIgnoreCase("ie")) {
             driver = new InternetExplorerDriver();
         } else if (browserChoice.equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();
@@ -28,8 +28,15 @@ public class BrowserFactory {
         driver.get(url);
         return driver;
     }
+
     @Test
-    public  void runBrowser() {
-       startBrowser("chrome", "https://www.ndosiautomation.co.za/");
+    public void runBrowser() {
+        startBrowser("chrome", "https://www.ndosiautomation.co.za/");
+    }
+
+    public static void closeBrowser() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
