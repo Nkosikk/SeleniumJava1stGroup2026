@@ -28,4 +28,5 @@ public class BrowserFactory {
         driver.get(url);
         return driver;
     }
+
 }

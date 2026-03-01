@@ -1,5 +1,6 @@
 package Base;
 
+import Pages.LocatorTask;
 import Pages.LoginPage;
 import Utilities.BrowserFactory;
 import org.openqa.selenium.WebDriver;
@@ -12,5 +13,9 @@ public class BaseTest {
      public final String browserChoice = "chrome";
 
      public final WebDriver driver = browserFactory.startBrowser(browserChoice, url);
+
+     //Call my pages
      public LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+    public LocatorTask locatorTask = PageFactory.initElements(driver, LocatorTask.class);
+
 }
