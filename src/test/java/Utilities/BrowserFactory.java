@@ -6,16 +6,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
 
 public class BrowserFactory {
 
     static WebDriver driver;
 
     public static WebDriver startBrowser(String browserChoice, String url) {
-        if (browserChoice.equalsIgnoreCase("cHrOmE")) {
+        if (browserChoice.equalsIgnoreCase("chrome")) {
             driver = new ChromeDriver();
-        } else if (browserChoice.equalsIgnoreCase("internetexplore")) {
+        } else if (browserChoice.equalsIgnoreCase("ie")) {
             driver = new InternetExplorerDriver();
         } else if (browserChoice.equalsIgnoreCase("firefox")) {
             driver = new FirefoxDriver();
@@ -29,7 +29,12 @@ public class BrowserFactory {
         return driver;
     }
 
-    public void closeBrowser() {
+    @Test
+    public void runBrowser() {
+        startBrowser("chrome", "https://www.ndosiautomation.co.za/");
+    }
+
+    public static void closeBrowser() {
         if (driver != null) {
             driver.quit();
         }

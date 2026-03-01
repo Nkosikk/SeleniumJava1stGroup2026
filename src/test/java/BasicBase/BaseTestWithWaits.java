@@ -22,8 +22,9 @@ public class BaseTestWithWaits {
     }
 
     @AfterMethod
-    public void tearDown() {
-        browserFactory.closeBrowser();
+   public void tearDown() {
+
     }
+
 
 }
