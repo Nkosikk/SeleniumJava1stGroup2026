@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
-public class LoginTest extends BaseTest {
+public class gitLoginTest extends BaseTest {
 
 
     @Test(dataProvider = "testdata")
