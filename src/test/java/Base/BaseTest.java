@@ -1,16 +1,31 @@
 package Base;
 
-import Pages.LoginPage;
+import BasicPages.LoginPageWithWaits;
 import Utilities.BrowserFactory;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
+
     BrowserFactory browserFactory = new BrowserFactory();
+    public final String url = "https://ndosisimplifiedautomation.vercel.app/";
+    public final String browserChoice = "chrome";
 
-     public final String url = "https://ndosisimplifiedautomation.vercel.app/";
-     public final String browserChoice = "chrome";
+    public WebDriver driver; // initialized per test
+    public LoginPageWithWaits loginPageWithWaits;
 
-     public final WebDriver driver = browserFactory.startBrowser(browserChoice, url);
-     public LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
+    @BeforeClass
+    public void setUp() {
+        driver = browserFactory.startBrowser(browserChoice, url);
+        loginPageWithWaits  =new LoginPageWithWaits(driver);
+    }
+
+    @AfterClass
+    public void tearDown() {
+        browserFactory.closeBrowser();
+    }
+
 }
