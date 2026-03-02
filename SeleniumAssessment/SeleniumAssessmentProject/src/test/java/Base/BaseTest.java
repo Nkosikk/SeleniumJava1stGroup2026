@@ -6,8 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,13 +16,13 @@ import java.util.Properties;
 public class BaseTest {
 
     public static WebDriver driver;
-    public  static Properties prop = new Properties();
+    public static Properties prop = new Properties();
     public static Properties locators = new Properties();
     public static FileReader frprop;
     public static FileReader frloc;
 
-    // Set up the WebDriver before any tests are run
-    @BeforeTest
+    // Set up the WebDriver before any tests in the class are run
+    @BeforeClass
     public void setUp() throws IOException {
 
         if (driver == null) {
@@ -63,15 +63,15 @@ public class BaseTest {
         }
     }
 
-    /*
-    // Close the browser after all tests are done
-    @AfterTest
+    // Close the browser after all tests in the class are done
+   /* @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();
+            driver = null;
         }
     }
 
-     */
 
+    */
 }

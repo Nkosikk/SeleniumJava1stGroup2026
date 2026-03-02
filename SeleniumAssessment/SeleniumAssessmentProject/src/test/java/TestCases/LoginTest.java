@@ -3,21 +3,21 @@ package TestCases;
 
 import Base.BaseTest;
 import LoginPage.LoginPage;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest {
+public class LoginTest  extends BaseTest {
 
     LoginPage loginPage;
 
-    @BeforeMethod
+    @BeforeClass
     public void setUpLoginPage() {
-        loginPage = new LoginPage();
+        loginPage = new LoginPage(BaseTest.driver);
     }
 
     @Test(dataProvider = "testData")
-    public void loginWithValidDetails(String email, String password, String expectedMessage) throws InterruptedException{
+    public void loginWithValidDetails(String email, String password, String expectedMessage){
         loginPage.clickLoginButton();
         loginPage.enterEmailAddress(email);
         loginPage.enterPassword(password);
