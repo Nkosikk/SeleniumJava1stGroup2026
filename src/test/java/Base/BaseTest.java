@@ -2,6 +2,7 @@ package Base;
 
 import BasicPages.LoginPageWithWaits;
 import Utilities.BrowserFactory;
+import Utilities.Screenshots;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -16,11 +17,13 @@ public class BaseTest {
 
     public WebDriver driver; // initialized per test
     public LoginPageWithWaits loginPageWithWaits;
+    public Screenshots screenshots;
 
     @BeforeClass
     public void setUp() {
         driver = browserFactory.startBrowser(browserChoice, url);
         loginPageWithWaits  =new LoginPageWithWaits(driver);
+        screenshots = new Screenshots();
     }
 
     @AfterClass
