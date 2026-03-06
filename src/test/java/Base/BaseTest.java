@@ -19,15 +19,12 @@ public class BaseTest {
     @BeforeClass
     public void setUp() {
         driver = browserFactory.startBrowser(browserChoice, url);
-        loginPageWithWaits  =new LoginPageWithWaits(driver);
+        loginPageWithWaits = new LoginPageWithWaits(driver);
         screenshots = new Screenshots();
-
-        }
     }
 
     @AfterClass
     public void tearDown() {
         browserFactory.closeBrowser();
     }
-
-
+}

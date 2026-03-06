@@ -1,7 +1,8 @@
-package Tests;
+package Test;
 
 import Base.BaseTest;
 import Utilities.ReadXSLdata;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
@@ -29,6 +30,13 @@ public class LoginTest extends BaseTest {
     public void verifyLoginSuccess() {
         loginPageWithWaits.verifyLoginSuccess("Here's an overview of your learning journey");
         screenshots.takesSnapShot(driver,"verifyLoginSuccess");
+    }
+    @Test(priority = 4)
+    public void verifyLoginPageTitle() {
+        String expectedTitle = "Ndosi Test Automation";
+        String actualTitle = driver.getTitle();
+        Assert.assertEquals(actualTitle, expectedTitle, "Page title doesn't match!");
+        screenshots.takesSnapShot(driver,"verifyLoginPageTitle");
     }
 
 }
