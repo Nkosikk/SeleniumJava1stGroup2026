@@ -4,10 +4,7 @@ import BasicPages.LoginPageWithWaits;
 import Utilities.BrowserFactory;
 import Utilities.Screenshots;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 public class BaseTest {
 
@@ -22,7 +19,7 @@ public class BaseTest {
     @BeforeClass
     public void setUp() {
         driver = browserFactory.startBrowser(browserChoice, url);
-        loginPageWithWaits  =new LoginPageWithWaits(driver);
+        loginPageWithWaits = new LoginPageWithWaits(driver);
         screenshots = new Screenshots();
     }
 
@@ -30,5 +27,4 @@ public class BaseTest {
     public void tearDown() {
         browserFactory.closeBrowser();
     }
-
 }

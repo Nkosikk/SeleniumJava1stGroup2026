@@ -34,4 +34,18 @@ public class BrowserFactory {
             driver.quit();
         }
     }
+
+    public void maximizeWindow() {
+        if (driver != null) {
+            driver.manage().window().maximize();
+            System.out.println("Browser window maximized");
+        }
+    }
+
+    public String getCurrentUrl() {
+        if (driver != null) {
+            return driver.getCurrentUrl();
+        }
+        return null;
+    }
 }
