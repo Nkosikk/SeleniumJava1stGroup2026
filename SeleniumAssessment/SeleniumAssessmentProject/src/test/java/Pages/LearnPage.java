@@ -1,23 +1,34 @@
 package Pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LandingPage {
+import java.time.Duration;
+
+public class LearnPage {
 
 
-    private WebDriverWait wait;
+    WebDriverWait wait;
+    WebDriver driver;
 
-    @FindBy(xpath = "//*[@id=\"practice-section\"]/p/text()")
-    WebElement landingPageText;
+    public LearnPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        PageFactory.initElements(driver,this);
+    }
 
     @FindBy(xpath = "//*[@id=\"app-root\"]/nav/div[1]/div[2]/div[1]/button")
     WebElement learnDDButton;
 
     @FindBy(xpath = "//*[@id=\"app-root\"]/nav/div[1]/div[2]/div[1]/div/button[2]/span[2]")
     WebElement learningMatDDButton;
+
+    @FindBy(xpath = "//section[@id='practice-section']/p")
+    WebElement landingPageText;
 
 
     public  void learnDDButton() {
