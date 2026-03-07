@@ -96,32 +96,67 @@ public class ShippingPage {
     @FindBy(id="discount-code")
     WebElement discountCodeInput;
 
+    public  void enterDiscountCode(String discountCode) {
+        wait.until(ExpectedConditions.visibilityOf(discountCodeInput)).sendKeys(discountCode);
+    }
+
     //12. Apply button element
     @FindBy(id = "apply-discount-btn")
     WebElement applyDiscountButton;
+
+    // Method to select warranty option
+    public void clickApplyDiscount() {
+        wait.until(ExpectedConditions.elementToBeClickable(applyDiscountButton)).click();
+    }
 
     //12. Discount feedback message element
     @FindBy(id="discount-feedback")
     WebElement discountFeedbackMessage;
 
+
+    // Method to verify Warranty Price displayed
+    public void verifyDiscountFeedback(String expectedDiscountFBText) {
+        wait.until(ExpectedConditions.visibilityOf(discountFeedbackMessage));
+        String actualText = discountFeedbackMessage.getText();
+        if (!actualText.equals(expectedDiscountFBText)) {
+            throw new AssertionError("Expected message: " + expectedDiscountFBText + ", but got: " + actualText);
+        }
+    }
+
     //12. Discount label element
     @FindBy(id="breakdown-discount-label")
     WebElement discountLabel;
+
+    // Method to verify Warranty Price displayed
+    public void verifyDiscountLabel(String expectedDiscountLabel) {
+        wait.until(ExpectedConditions.visibilityOf(discountLabel));
+        String actualText = discountLabel.getText();
+        if (!actualText.equals(expectedDiscountLabel)) {
+            throw new AssertionError("Expected message: " + expectedDiscountLabel + ", but got: " + actualText);
+        }
+    }
 
     //12. Discount value element
     @FindBy(id="breakdown-discount-value")
     WebElement discountValue;
 
+
+    // Method to verify Warranty Price displayed
+    public void verifyDiscountValue(String expectedDiscountValue) {
+        wait.until(ExpectedConditions.visibilityOf(discountValue));
+        String actualText = discountValue.getText();
+        if (!actualText.equals(expectedDiscountValue)) {
+            throw new AssertionError("Expected message: " + expectedDiscountValue + ", but got: " + actualText);
+        }
+    }
+
     //13. Confirm Purchase button element
     @FindBy(id="purchase-device-btn")
     WebElement purchaseDeviceButton;
 
-    //13. Success toast element
-    @FindBy(id="purchase-success-toast")
-    WebElement purchaseSuccessToast;
-
-    //14. View History button element
-    @FindBy(id="view-history-btn")
-    WebElement viewHistoryButton;
+    // Method to click Confirm Purchase button
+    public void clickConfirmPurchase() {
+        wait.until(ExpectedConditions.elementToBeClickable(purchaseDeviceButton)).click();
+    }
 
 }

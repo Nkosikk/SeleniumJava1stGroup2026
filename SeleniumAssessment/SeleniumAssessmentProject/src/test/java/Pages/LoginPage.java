@@ -1,7 +1,6 @@
-package LoginPage;
+package Pages;
 
 
-import Base.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,16 +12,14 @@ import java.time.Duration;
 
 public class LoginPage {
 
-
-    public WebDriver driver;
-    public WebDriverWait wait;
+    WebDriver driver;
+     WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(driver,this);
     }
-
 
     @FindBy(xpath = "//*[@id='app-root']/nav/div[1]/div[3]/button/span[2]")
      WebElement loginButton;
@@ -54,7 +51,8 @@ public class LoginPage {
     }
 
     public  void clickSubmitButton() {
-        wait.until(ExpectedConditions.elementToBeClickable(loginSubmitButton)).click();
+        wait.until(ExpectedConditions.elementToBeClickable(loginSubmitButton));
+        loginSubmitButton.click();
     }
 
     public  void verifyLoginSuccess(String expectedMessage) {
