@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="ChainedClassesSuite" parallel="false" preserve-order="true">
+    <test name="FlowByClasses">
+        <classes>
+            <class name="Tests.LoginTestXSL"/>
+            <class name="Tests.LearnTest"/>
+            <class name="Tests.InventoryFormTest"/>
+            <class name="Tests.ShippingTest"/>
+            <class name="Tests.PurchaseSuccessTest"/>
+            <class name="Tests.InvoiceHistoryTest"/>
+        </classes>
+    </test>
+</suite>

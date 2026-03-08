@@ -16,7 +16,6 @@ public class ShippingPage {
 
     //1. Constructor to initialize WebDriver and WebDriverWait
     public ShippingPage(WebDriver driver) {
-        //LoginPage loginPage = new LoginPage(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
     }

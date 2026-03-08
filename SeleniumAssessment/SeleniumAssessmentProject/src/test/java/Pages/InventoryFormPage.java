@@ -14,11 +14,11 @@ import java.time.Duration;
 
 public class InventoryFormPage {
 
+
     WebDriverWait wait;
 
     //1. Constructor to initialize WebDriver and WebDriverWait
     public InventoryFormPage(WebDriver driver) {
-        //LoginPage loginPage = new LoginPage(driver);
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver, this);
     }

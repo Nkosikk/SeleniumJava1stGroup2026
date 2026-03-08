@@ -13,10 +13,8 @@ public class LearnPage {
 
 
     WebDriverWait wait;
-    WebDriver driver;
 
     public LearnPage(WebDriver driver) {
-        this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver,this);
     }
@@ -31,14 +29,17 @@ public class LearnPage {
     WebElement landingPageText;
 
 
+    //Clicks on the "Learn" dropdown button in the navigation bar and Waits until the button is clickable before performing the click action.
     public  void learnDDButton() {
         wait.until(ExpectedConditions.elementToBeClickable(learnDDButton)).click();
     }
 
+    //Clicks on the "Learning Materials" button in the dropdown menu and Waits until the button is clickable before performing the click action.
     public void learningMatButton() {
         wait.until(ExpectedConditions.elementToBeClickable(learningMatDDButton)).click();
     }
 
+    // Verifies that the text on the landing page matches the expected text. It waits until the text element is visible, retrieves the actual text, and compares it to the expected text. If they do not match, an AssertionError is thrown with a message indicating the expected and actual text.
     public void landingPageText(String expectedText){
         wait.until(ExpectedConditions.visibilityOf(landingPageText));
         String actualText = landingPageText.getText();

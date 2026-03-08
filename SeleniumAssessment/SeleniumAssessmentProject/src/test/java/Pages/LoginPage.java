@@ -12,11 +12,10 @@ import java.time.Duration;
 
 public class LoginPage {
 
-    WebDriver driver;
-     WebDriverWait wait;
+    WebDriverWait wait;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
+
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver,this);
     }

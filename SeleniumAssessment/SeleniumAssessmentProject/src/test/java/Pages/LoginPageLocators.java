@@ -13,11 +13,9 @@ import java.time.Duration;
 
 public class LoginPageLocators extends BaseTest {
 
-    WebDriver driver;
      WebDriverWait wait;
 
     public LoginPageLocators(WebDriver driver) {
-        this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         PageFactory.initElements(driver,this);
     }

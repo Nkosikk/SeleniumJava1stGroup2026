@@ -19,9 +19,9 @@ public class ReadXLSXFile {
 
         for (String[] row : data) {
             for (String cell : row) {
-                System.out.print(cell + " ");
+                //System.out.print(cell + " ");
             }
-            System.out.println();
+            //System.out.println();
         }
     }
 
@@ -39,7 +39,7 @@ public class ReadXLSXFile {
             }
 
             int totalRows = sheet.getLastRowNum();
-            System.out.println("Total Rows: " + totalRows);
+            //System.out.println("Total Rows: " + totalRows);
 
             // Ensure we have at least 1 data row (excluding header)
             int dataRows = totalRows; // Since we start from row 1
@@ -53,8 +53,8 @@ public class ReadXLSXFile {
             }
 
             int totalCols = headerRow.getLastCellNum();
-            System.out.println("Total Columns: " + totalCols);
-            System.out.println("Reading " + dataRows + " data rows from Excel sheet: " + excelSheet);
+            //System.out.println("Total Columns: " + totalCols);
+            //System.out.println("Reading " + dataRows + " data rows from Excel sheet: " + excelSheet);
 
             DataFormatter formatter = new DataFormatter();
             String[][] testData = new String[totalRows][totalCols];
@@ -69,26 +69,28 @@ public class ReadXLSXFile {
                         testData[a - 1][b] = formatter.formatCellValue(currentRow.getCell(b));
                     }
 
-                    System.out.println(testData[a - 1][b]);
+                    //System.out.println(testData[a - 1][b]);
                 }
-                System.out.println();
+                //System.out.println();
             }
 
             return testData;
         }
     }
 
-    //Methods to use above returned excelfile
+    //DataProvider methods to use above returned excelfile for different test cases
     @DataProvider(name = "loginData")
     public String[][] getLoginTestData() throws EncryptedDocumentException, IOException {
         return getDataFromXLSXFile("login");
     }
 
 
+
     @DataProvider(name = "learnData")
     public String[][] getLearnTestData() throws EncryptedDocumentException, IOException {
         return getDataFromXLSXFile("learn");
     }
+
 
     @DataProvider(name = "inventoryData")
     public String[][] getInventoryTestData() throws EncryptedDocumentException, IOException {

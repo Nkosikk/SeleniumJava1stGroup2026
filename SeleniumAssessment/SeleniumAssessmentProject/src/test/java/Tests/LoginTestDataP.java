@@ -1,4 +1,4 @@
-package TestCases;
+package Tests;
 
 
 import Base.BaseTest;
@@ -10,11 +10,11 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 
-public class LoginTest  extends BaseTest {
+public class LoginTestDataP extends BaseTest {
 
     //region Test Login
     LoginPage loginPage;
-    LearnPage welcomePage;
+    LearnPage learnPage;
     InventoryFormPage inv;
     ShippingPage shippingPage;
     PurchaseSuccessPage purchaseSuccessPage;
@@ -24,7 +24,7 @@ public class LoginTest  extends BaseTest {
     public void setUpLoginPage() {
         loginPage = new LoginPage(driver);
         inv = new InventoryFormPage(driver);
-        welcomePage = new LearnPage(driver);
+        learnPage = new LearnPage(driver);
         shippingPage = new ShippingPage(driver);
         purchaseSuccessPage = new PurchaseSuccessPage(driver);
         invoiceHistoryPage = new InvoiceHistoryPage(driver);
@@ -42,10 +42,10 @@ public class LoginTest  extends BaseTest {
     }
 
     @Test(dependsOnMethods = "loginWithValidDetails", dataProvider = "testData2")
-    public void TestWelcomePage(String expectedText) {
-        welcomePage.learnDDButton();
-        welcomePage.learningMatButton();
-        welcomePage.landingPageText(expectedText);
+    public void TestLearnPage(String expectedText) {
+        learnPage.learnDDButton();
+        learnPage.learningMatButton();
+        learnPage.landingPageText(expectedText);
     }
 
 

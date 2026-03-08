@@ -1,5 +1,6 @@
 package Utilities;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -8,44 +9,46 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class BrowserFactory {
 
-    static WebDriver driver;
+    private static WebDriver driver;
 
-    //Open browser with either chrome, firefox or edge and navigate to the url
-    public static WebDriver startBrowser(String browserName, String url) {
-        if (browserName.equalsIgnoreCase("chrome"))
-        {
+    public static WebDriver startBrowser() {
+        if (driver != null) {
+            // reuse existing session
+            return driver;
+        }
+
+        String browserName = ReadPropertyFile.getProperty("browser");
+        String url = ReadPropertyFile.getProperty("testurl");
+
+        if ("chrome".equalsIgnoreCase(browserName)) {
+            WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-           // driver = BrowserFactoryChrome.startChromeDriver(url);
-        }
-        else if (browserName.equalsIgnoreCase("firefox"))
-        {
+        } else if ("firefox".equalsIgnoreCase(browserName)) {
+            WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
-           // driver = BrowserFactoryFirefox.startFirefoxDriver(url);
-        }
-        else if (browserName.equalsIgnoreCase("safari"))
-        {
+        } else if ("safari".equalsIgnoreCase(browserName)) {
+            WebDriverManager.safaridriver().setup();
             driver = new SafariDriver();
-            // driver = BrowserFactoryFirefox.startFirefoxDriver(url);
-        }
-        else if (browserName.equalsIgnoreCase("edge"))
-        {
+        } else if ("edge".equalsIgnoreCase(browserName)) {
+            WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
-            //driver = BrowserFactoryEdge.startEdgeDriver(url);
+        } else {
+            throw new IllegalArgumentException("Unsupported browser: " + browserName);
         }
-        else
-        {
-            System.out.println("Browser name is not correct");
-        }
+
         driver.manage().window().maximize();
         driver.get(url);
         return driver;
     }
 
-    //Close the browser
-    public void closeBrowser() {
-        if (driver != null
-        ) {
-            driver.close();
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
+    public static void closeBrowser() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
         }
 
     }
